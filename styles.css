@@ -1,0 +1,165 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  background-color: #cfd8dc;
+}
+
+.section-left {
+  background-color: #455a64;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  display: table;
+}
+
+.section-right {
+  margin: 0 auto;
+  width: 50%;
+  float: right;
+}
+
+.container-left {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+form {
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+  width: 80%
+}
+
+h1 {
+  color: white;
+  font-size: 4em;
+  font-weight: 800;
+  margin: 0 0 50px 0;
+}
+
+h1 img {
+  height: 50px;
+}
+
+.input-web-title {
+  display: block;
+  margin-bottom: 50px;
+  font-size: 2em;
+  width: 99%
+}
+
+.input-web-url {
+  display: block;
+  margin-bottom: 50px;
+  font-size: 2em;
+  width: 99%
+}
+
+.input-submit {
+  font-size: 1em;
+  height: 40px;
+  width: 100%;
+  background-color: #ffc107;
+  border: none;
+  color: white;
+  font-weight: 800;
+}
+
+.input-submit:hover {
+  background-color: #ffd773;
+}
+
+article {
+  margin: 20px auto 0 auto;
+  background-color: white;
+  width: 90%;
+  border: 2px solid #067d8b;
+}
+
+.read {
+  background-color: #f2f4f4;
+  /* color: #f05a28; */
+}
+
+h2 {
+  color: #455a64;
+  margin: 10px 0 10px 20px;
+  font-size: 2em;
+}
+
+.website-url {
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
+  color: #607d8b;
+  margin: 15px 0 15px 20px;
+  font-size: 1.4em;
+}
+
+.website-url:hover {
+  text-decoration-color: #ffc107;
+  color: #455a64;
+  font-weight: 800;
+}
+
+.bookmark-buttons {
+  border: none;
+  background-color: white;
+  margin-bottom: 0 10px 10px 10px;
+  color: #455a64;
+  font-size: 1.1em;
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
+}
+
+.bookmark-buttons:hover {
+  text-decoration-color: #ffc107;
+  color: #455a64;
+  font-weight: 800;
+}
+
+.read-button {
+  height: 25px;
+  margin: 10px 0 10px 20px;
+}
+
+.delete-button {
+  float: right;
+  height: 25px;
+  margin: 10px 20px 10px 0;
+}
+
+hr {
+  border-color: #cfd8dc;
+  margin: 0 20px 0 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .section-left {
+    height: 300px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 3em;
+    margin: 0 0 20px 0;
+  }
+  h1 img {
+    height: 25px;
+  }
+  .input-web-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    width: 99%
+  }
+  .input-web-url {
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  .input-submit {
+    font-size: 1em;
+  }
+  .section-right {
+    margin-top: 300px;
+    width: 100%;
+  }
+}
