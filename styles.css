@@ -124,7 +124,6 @@ h2 {
     color: #f05a28;
 }
 
-
 .button-read {
     height: 25px;
     margin: 10px 0 10px 20px;
@@ -139,4 +138,34 @@ h2 {
 hr {
     border-color: #cfd8dc;
     margin: 0 20px 0 20px;
+}
+
+@media screen and (max-width: 550px) {
+    .section-left {
+        height: 300px;
+        width: 100%;
+    }
+    h1 {
+        font-size: 3em;
+        margin: 0 0 20px 0;
+    }
+    h1 img {
+        height: 25px;
+    }
+    .input-web-title {
+        margin-bottom: 20px;
+        font-size: 2em;
+        width: 99%
+    }
+    .input-web-url {
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
+    .input-submit {
+        font-size: 1em;
+    }
+    .section-right {
+        margin-top: 300px;
+        width: 100%;
+    }
 }
