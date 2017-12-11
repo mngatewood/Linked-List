@@ -36,7 +36,8 @@ submitButton.addEventListener('click', function(event) {
 $(bookmarks).on('click', '.read-button', function() {
   event.preventDefault;
   console.log('read clicked');
-  this.parentElement.classList.toggle('read');
+  this.parentElement.classList.toggle('read1');
+  this.classList.toggle('read2');
 })
 
 $(bookmarks).on('click', '.delete-button', function() {
@@ -67,6 +68,8 @@ function getWebsiteTitle() {
   newBox.appendChild(createH2Element);
   var newBoxh2 = document.querySelector('h2:not(.added)');
   newBoxh2.innerText = websiteTitleInput.value;
+  var createHRElement = document.createElement('hr');
+  newBox.appendChild(createHRElement);
   newBoxh2.classList.add('added');
 }
 
@@ -76,6 +79,8 @@ function getWebsiteURL() {
   newBox.appendChild(createPElement);
   var newBoxP = document.querySelector('p:not(.added)');
   newBoxP.innerHTML = '<a href= "' + websiteURLInput.value + '">' + websiteURLInput.value + '</a>';
+  var createHRElement = document.createElement('hr');
+  newBox.appendChild(createHRElement);
   newBoxP.classList.add('added', 'website-url');
 }
 
@@ -101,4 +106,3 @@ function resetPage() {
   websiteURLInput.value = '';
   websiteTitleInput.focus();
 }
-
