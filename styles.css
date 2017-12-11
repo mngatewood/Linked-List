@@ -77,9 +77,12 @@ article {
   border: 2px solid #067d8b;
 }
 
-.read {
+.read1 {
   background-color: #f2f4f4;
-  /* color: #f05a28; */
+}
+
+.read2 {
+  color: #f05a28;
 }
 
 h2 {
