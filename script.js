@@ -1,6 +1,7 @@
 var websiteTitleInput = document.querySelector('#website');
 var websiteURLInput = document.querySelector('#url');
 var submitButton = document.querySelector('#submit');
+var clearButton = document.querySelector('#clear-read');
 var bookmarks = document.querySelector('#bookmarks');
 var newBox = document.querySelector('article:not(.added)')
 var readButton = document.querySelector('.read-button');
@@ -33,26 +34,32 @@ submitButton.addEventListener('click', function(event) {
   }
 })
 
-$(bookmarks).on('click', '.read-button', function() {
+clearButton.addEventListener('click', function(event) {
   event.preventDefault;
-  console.log('read clicked');
+//  console.log('clear button clicked');
+  $('article.read1').remove();
+})
+
+$(bookmarks).on('click', '.read-button', function(event) {
+  event.preventDefault;
+  // console.log('read clicked');
   this.parentElement.classList.toggle('read1');
   this.classList.toggle('read2');
 })
 
-$(bookmarks).on('click', '.delete-button', function() {
+$(bookmarks).on('click', '.delete-button', function(event) {
   event.preventDefault;
-  console.log('read clicked');
+  // console.log('read clicked');
   $(this).parent('article').remove();
 })
 
 function disableSubmit(){
   if (websiteTitleInput.value === '' || websiteURLInput.value === '') {
-    console.log('disabled');
+    // console.log('disabled');
     submitButton.disabled = true;
   } else {
     submitButton.disabled = false;
-    console.log('enabled');
+    // console.log('enabled');
   } 
 }
 
@@ -106,3 +113,4 @@ function resetPage() {
   websiteURLInput.value = '';
   websiteTitleInput.focus();
 }
+
