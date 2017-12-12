@@ -108,7 +108,7 @@ function makeNewDelete() {
 }
 
 function resetPage() {
-  newBox.classList.add('added', 'bookmark');
+  newBox.classList.add('added');
   websiteTitleInput.value = '';
   websiteURLInput.value = '';
   websiteTitleInput.focus();
