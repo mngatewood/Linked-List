@@ -115,7 +115,7 @@ a:hover {
   border: none;
   margin-bottom: 0 10px 10px 10px;
   color: #455a64;
-  background-color: white;
+  background-color: inherit;
   font-size: 1.1em;
   text-decoration: underline;
   text-decoration-color: #f2f4f4;
