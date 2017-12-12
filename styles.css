@@ -59,6 +59,7 @@ h1 img {
 .input-submit {
   height: 40px;
   width: 100%;
+  margin-bottom: 50px;
   border: none;
   color: white;
   background-color: #ffc107;
@@ -165,12 +166,13 @@ hr {
     font-size: 1.5em;
   }
   .input-submit {
+    margin-bottom: 10px;
     height: 30px;
     font-size: 1em;
   }
   .section-right {
     width: 100%;
-    margin-top: 200px;
+    margin-top: 220px;
   }
   h2 {
     font-size: 1em;
