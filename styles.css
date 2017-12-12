@@ -77,11 +77,11 @@ article {
   background-color: white;
 }
 
-.read1 {
+article.read1 {
   background-color: #f2f4f4;
 }
 
-.read2 {
+button.read2 {
   color: #f05a28;
 }
 
