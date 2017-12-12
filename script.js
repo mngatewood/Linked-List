@@ -9,58 +9,90 @@ var deleteButton = document.querySelector('.delete-button');
 websiteTitleInput.focus();
 submitButton.disabled = 'true';
 
-websiteTitleInput.addEventListener('keyup', function(event) {
+websiteTitleInput.addEventListener('keyup', function (event) {
   event.preventDefault;
   disableSubmit();
 })
 
-websiteURLInput.addEventListener('keyup', function(event) {
+websiteURLInput.addEventListener('keyup', function (event) {
   event.preventDefault;
   disableSubmit();
 })
 
-submitButton.addEventListener('click', function(event) {
+submitButton.addEventListener('click', function (event) {
   event.preventDefault;
   var form = document.querySelector('#form');
-  if(form.checkValidity()) {
+  if (form.checkValidity()) {
     makeNewBox();
     getWebsiteTitle();
     getWebsiteURL();
     makeNewRead();
     makeNewDelete();
     resetPage();
+    bookmarkCount();
   } else {
     alert('Please enter a title and valid URL!');
   }
 })
 
-clearButton.addEventListener('click', function(event) {
+function bookmarkCount() {
+  var numArticles = document.querySelectorAll('article');
+  var bookmarkCount = document.querySelector('#bookmark-count');
+  bookmarkCount.innerText = numArticles.length;
+}
+
+clearButton.addEventListener('click', function (event) {
   event.preventDefault;
-//  console.log('clear button clicked');
+  //  console.log('clear button clicked');
   $('article.read1').remove();
 })
 
-$(bookmarks).on('click', '.read-button', function(event) {
+$(bookmarks).on('click', '.read-button', function (event) {
   event.preventDefault;
   // console.log('read clicked');
   this.parentElement.classList.toggle('read1');
   this.classList.toggle('read2');
+
+  var numArticles = document.querySelectorAll('article');
+  var numRead = document.querySelector('#num-read');
+  var numUnread = document.querySelector('#num-unread');
+  var numReadArticles = document.querySelectorAll('.read1');
+  // var numUnreadArticles = document.querySelectorAll('.read1');
+
+  numRead.innerText = numReadArticles.length;
+  numUnread.innerText = numArticles.length - numReadArticles.length;
+
 })
 
-$(bookmarks).on('click', '.delete-button', function(event) {
+$(bookmarks).on('click', '.delete-button', function (event) {
   event.preventDefault;
   // console.log('read clicked');
   $(this).parent('article').remove();
+
+
+  var numArticles = document.querySelectorAll('article');
+  var numRead = document.querySelector('#num-read');
+  var numUnread = document.querySelector('#num-unread');
+  var numReadArticles = document.querySelectorAll('.read1');
+  // var numUnreadArticles = document.querySelectorAll('.read1');
+
+  numRead.innerText = numReadArticles.length;
+  numUnread.innerText = numArticles.length - numReadArticles.length;
+
+  bookmarkCount()
+
+
+
 })
 
-function disableSubmit(){
+function disableSubmit() {
   if (websiteTitleInput.value === '' || websiteURLInput.value === '') {
     // console.log('disabled');
     submitButton.disabled = true;
   } else {
     submitButton.disabled = false;
     // console.log('enabled');
-  } 
+  }
 }
 
 function makeNewBox() {
@@ -108,9 +140,8 @@ function makeNewDelete() {
 }
 
 function resetPage() {
-  newBox.classList.add('added');
+  newBox.classList.add('added', 'bookmark');
   websiteTitleInput.value = '';
   websiteURLInput.value = '';
   websiteTitleInput.focus();
 }
-
