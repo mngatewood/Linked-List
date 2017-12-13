@@ -6,21 +6,25 @@ var bookmarks = document.querySelector('#bookmarks');
 var newBox = document.querySelector('article:not(.added)')
 var readButton = document.querySelector('.read-button');
 var deleteButton = document.querySelector('.delete-button');
+var bookmarkCount = document.querySelector('#bookmark-count');
+var numRead = document.querySelector('#num-read');
+var numUnread = document.querySelector('#num-unread');
+bookmarkCount.innerText = 0;
+numRead.innerText = 0;
+numUnread.innerText = 0;
 websiteTitleInput.focus();
-submitButton.disabled = 'true';
+submitButton.disabled = true;
+clearButton.disabled = true;
 
-websiteTitleInput.addEventListener('keyup', function (event) {
-  event.preventDefault;
+websiteTitleInput.addEventListener('keyup', function () {
   disableSubmit();
 })
 
-websiteURLInput.addEventListener('keyup', function (event) {
-  event.preventDefault;
+websiteURLInput.addEventListener('keyup', function () {
   disableSubmit();
 })
 
-submitButton.addEventListener('click', function (event) {
-  event.preventDefault;
+submitButton.addEventListener('click', function () {
   var form = document.querySelector('#form');
   if (form.checkValidity()) {
     makeNewBox();
@@ -29,83 +33,47 @@ submitButton.addEventListener('click', function (event) {
     makeNewRead();
     makeNewDelete();
     resetPage();
-    bookmarkCount();
+    countBookmarks();
   } else {
     alert('Please enter a title and valid URL!');
   }
 })
 
-function bookmarkCount() {
-  var numArticles = document.querySelectorAll('article');
-  var bookmarkCount = document.querySelector('#bookmark-count');
-  bookmarkCount.innerText = numArticles.length;
-}
-
-clearButton.addEventListener('click', function (event) {
-  event.preventDefault;
-  //  console.log('clear button clicked');
+clearButton.addEventListener('click', function () {
   $('article.read1').remove();
+  countBookmarks();
 })
 
-$(bookmarks).on('click', '.read-button', function (event) {
-  event.preventDefault;
-  // console.log('read clicked');
+$(bookmarks).on('click', '.read-button', function () {
   this.parentElement.classList.toggle('read1');
   this.classList.toggle('read2');
-
-  var numArticles = document.querySelectorAll('article');
-  var numRead = document.querySelector('#num-read');
-  var numUnread = document.querySelector('#num-unread');
-  var numReadArticles = document.querySelectorAll('.read1');
-  // var numUnreadArticles = document.querySelectorAll('.read1');
-
-  numRead.innerText = numReadArticles.length;
-  numUnread.innerText = numArticles.length - numReadArticles.length;
-
+  countBookmarks();
 })
 
-$(bookmarks).on('click', '.delete-button', function (event) {
-  event.preventDefault;
-  // console.log('read clicked');
+$(bookmarks).on('click', '.delete-button', function () {
   $(this).parent('article').remove();
-
-
-  var numArticles = document.querySelectorAll('article');
-  var numRead = document.querySelector('#num-read');
-  var numUnread = document.querySelector('#num-unread');
-  var numReadArticles = document.querySelectorAll('.read1');
-  // var numUnreadArticles = document.querySelectorAll('.read1');
-
-  numRead.innerText = numReadArticles.length;
-  numUnread.innerText = numArticles.length - numReadArticles.length;
-
-  bookmarkCount()
-
-
-
+  countBookmarks()
 })
 
 function disableSubmit() {
   if (websiteTitleInput.value === '' || websiteURLInput.value === '') {
-    // console.log('disabled');
     submitButton.disabled = true;
   } else {
     submitButton.disabled = false;
-    // console.log('enabled');
   }
 }
 
 function makeNewBox() {
-  var createNewBox = document.createElement('article')
+  var createNewBox = document.createElement('article');
   bookmarks.appendChild(createNewBox);
-  newBox = document.querySelector('article:not(.added)')
+  newBox = document.querySelector('article:not(.added)');
 }
 
 function getWebsiteTitle() {
-  var websiteTitle = websiteTitleInput.value
+  var websiteTitle = websiteTitleInput.value;
   var createH2Element = document.createElement('h2');
   newBox.appendChild(createH2Element);
-  var newBoxh2 = document.querySelector('h2:not(.added)');
+  var newBoxh2 = document.querySelector('article h2:not(.added)');
   newBoxh2.innerText = websiteTitleInput.value;
   var createHRElement = document.createElement('hr');
   newBox.appendChild(createHRElement);
@@ -113,10 +81,10 @@ function getWebsiteTitle() {
 }
 
 function getWebsiteURL() {
-  var websiteURL = websiteURLInput.value
+  var websiteURL = websiteURLInput.value;
   var createPElement = document.createElement('p');
   newBox.appendChild(createPElement);
-  var newBoxP = document.querySelector('p:not(.added)');
+  var newBoxP = document.querySelector('article p:not(.added)');
   newBoxP.innerHTML = '<a href= "' + websiteURLInput.value + '">' + websiteURLInput.value + '</a>';
   var createHRElement = document.createElement('hr');
   newBox.appendChild(createHRElement);
@@ -124,19 +92,19 @@ function getWebsiteURL() {
 }
 
 function makeNewRead() {
-  var createDiv1Element = document.createElement('button');
-  newBox.appendChild(createDiv1Element);
-  var newBoxDiv1 = document.querySelector('button:not(.added)');
-  newBoxDiv1.innerText = 'Read';
-  newBoxDiv1.classList.add('added', 'read-button', 'bookmark-buttons');
+  var createReadElement = document.createElement('button');
+  newBox.appendChild(createReadElement);
+  var newBoxRead = document.querySelector('button:not(.added)');
+  newBoxRead.innerText = 'Read';
+  newBoxRead.classList.add('added', 'read-button', 'bookmark-buttons');
 }
 
 function makeNewDelete() {
-  var createDiv2Element = document.createElement('button');
-  newBox.appendChild(createDiv2Element);
-  var newBoxDiv2 = document.querySelector('button:not(.added)');
-  newBoxDiv2.innerText = "Delete";
-  newBoxDiv2.classList.add('added', 'delete-button', 'bookmark-buttons');
+  var createDeleteElement = document.createElement('button');
+  newBox.appendChild(createDeleteElement);
+  var newBoxDelete = document.querySelector('button:not(.added)');
+  newBoxDelete.innerText = "Delete";
+  newBoxDelete.classList.add('added', 'delete-button', 'bookmark-buttons');
 }
 
 function resetPage() {
@@ -144,4 +112,17 @@ function resetPage() {
   websiteTitleInput.value = '';
   websiteURLInput.value = '';
   websiteTitleInput.focus();
+}
+
+function countBookmarks() {
+  var numArticles = document.querySelectorAll('article');
+  var numReadArticles = document.querySelectorAll('.read1');
+  bookmarkCount.innerText = numArticles.length;
+  numRead.innerText = numReadArticles.length;
+  numUnread.innerText = numArticles.length - numReadArticles.length;
+  if (numReadArticles.length === 0) {
+    clearButton.disabled = true;
+  } else {
+    clearButton.disabled = false;
+  }
 }
