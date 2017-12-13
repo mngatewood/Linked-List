@@ -87,6 +87,7 @@ button.read2 {
 }
 
 button.read2:hover {
+  color: #f05a28;
   font-weight: 800;
 }
 
