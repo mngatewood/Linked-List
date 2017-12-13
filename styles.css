@@ -86,6 +86,10 @@ button.read2 {
   color: #f05a28;
 }
 
+button.read2:hover {
+  font-weight: 800;
+}
+
 h2 {
   display: inline-block;
   width: 90%;
