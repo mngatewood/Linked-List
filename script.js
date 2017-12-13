@@ -34,6 +34,7 @@ submitButton.addEventListener('click', function () {
     makeNewDelete();
     resetPage();
     countBookmarks();
+    disableSubmit()
   } else {
     alert('Please enter a title and valid URL!');
   }
