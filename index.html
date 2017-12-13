@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!--   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Linked List</title>
-<!--  <meta name="description" content=""> -->
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
 </head>
+
 <body>
   <section class="section-left" id="formSection">
     <div class="container-left">
@@ -17,18 +19,29 @@
           <img src="linked-list-logo.svg" alt="Linked List logo"> List</h1>
         <input class="input-web-title" type="text" id="website" placeholder="Website Title" required>
         <input class="input-web-url" type="url" id="url" placeholder="Website URL" required>
-        <input class="input-submit" type="submit" id="submit" name="" value="Enter">
-        <input class="input-submit" type="submit" id="clear-read" name="" value="Clear all read bookmarks">
+        <input class="input-buttons button-submit" type="submit" id="submit" name="" value="Enter">
+        <div class="counter">
+          <h3>Bookmarks:
+            <span id="bookmark-count">0</span>
+          </h3>
+          <h3>Read:
+            <span id="num-read">0</span>
+          </h3>
+          <h3>Unread:
+            <span id="num-unread">0</span>
+          </h3>
+        </div>
+        <input class="input-buttons button-clear" type="submit" id="clear-read" name="" value="Clear all read bookmarks">
       </form>
-        <p class="counter">Number of bookmarks: <span id="bookmark-count"></span></p>
-        <p class="counter">Number of read bookmarks: <span id="num-read"></span></p>
-        <p class="counter">Number of unread bookmarks: <span id="num-unread"></span></p>
     </div>
   </section>
   <section class="section-right" id="bookmarks">
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
+  <script>
+    window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')
+  </script>
   <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
