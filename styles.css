@@ -5,18 +5,14 @@ body {
   font-weight: 400;
 }
 
+/* Left side of page */
+
 .section-left {
   position: fixed;
   display: table;
   height: 100%;
   width: 50%;
   background-color: #455a64;
-}
-
-.section-right {
-  float: right;
-  width: 50%;
-  margin: 0 auto;
 }
 
 .container-left {
@@ -87,6 +83,14 @@ h3 {
 
 span {
   color: #ffc107;
+}
+
+/* Right side of page */
+
+.section-right {
+  float: right;
+  width: 50%;
+  margin: 0 auto;
 }
 
 article {
@@ -168,47 +172,59 @@ hr {
 }
 
 @media screen and (max-width: 700px) {
+
   .section-left {
     height: 200px;
     width: 100%;
   }
+
   h1 {
     margin: 0 0 10px 0;
     font-size: 2em;
   }
+
   h1 img {
     height: 25px;
   }
+
   .input-web-title {
     width: 99%;
     margin-bottom: 10px;
     font-size: 1.5em;
   }
+
   .input-web-url {
     margin-bottom: 10px;
     font-size: 1.5em;
   }
+
   .button-submit {
     height: 35px;
   }
+
   .button-clear {
     height: 35px;
     margin-bottom: 10px;
   }
+
   .counter {
     margin: 6px 0 6px 0;
   }
+
   h3 {
     margin-right: 5px;
     font-size: .85em;
   }
+
   .section-right {
     width: 100%;
     margin-top: 250px;
   }
+
   h2 {
     font-size: 1em;
   }
+  
   a {
     font-size: 1em;
   }
