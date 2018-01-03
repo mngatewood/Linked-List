@@ -1,1 +1,1 @@
-this is a conflict
+This is some different text
